@@ -1,8 +1,11 @@
-import mysql from "mysql2/promise";
+﻿import mysql from "mysql2/promise";
 import { readFile } from "node:fs/promises";
 
 let db;
+
 try {
+  const database = process.env.MYSQL_DATABASE || "labtrack_new";
+
   db = await mysql.createConnection({
     host: process.env.MYSQL_HOST || "localhost",
     port: Number(process.env.MYSQL_PORT || 3306),
@@ -13,19 +16,24 @@ try {
 
   const [existing] = await db.execute(
     `SELECT TABLE_NAME FROM information_schema.TABLES
-     WHERE TABLE_SCHEMA = 'labtrack'`,
+     WHERE TABLE_SCHEMA = ?`,
+    [database],
   );
+
   if (existing.length) {
     throw new Error(
-      "labtrack already contains tables. Setup stopped without changing them.",
+      `${database} already contains tables. Setup stopped without changing them.`,
     );
   }
 
   const sql = await readFile(
-    new URL("../database/schema.sql", import.meta.url), "utf8",
+    new URL("../database/schema.sql", import.meta.url),
+    "utf8",
   );
+
   await db.query(sql);
-  console.log("LabTrack schema created. Next run db:procedure, then db:seed.");
+
+  console.log(`${database} schema created successfully.`);
 } catch (error) {
   console.error("Setup stopped:", error.message);
   process.exitCode = 1;

@@ -1,10 +1,11 @@
--- LabTrack schema. Run against a new, empty labtrack database.
+
+-- LabTrack schema. Run against a new, empty labtrack_new database.
 
 -- Existing populated databases require reviewed migrations.
 
-CREATE DATABASE IF NOT EXISTS labtrack;
+CREATE DATABASE IF NOT EXISTS labtrack_new;
 
-USE labtrack;
+USE labtrack_new;
 
 CREATE TABLE `users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
