@@ -13,14 +13,17 @@ CREATE TABLE `users` (
   `password_hash` varchar(255) NOT NULL,
   `user_role` enum('Student','Staff','Technician') NOT NULL,
   PRIMARY KEY (`user_id`),
-  UNIQUE KEY `email` (`email`)
+  UNIQUE KEY `email` (`email`),
+  CONSTRAINT `chk_user_name_nonempty` CHECK ((char_length(trim(`user_name`)) > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `laboratories` (
   `lab_id` int NOT NULL AUTO_INCREMENT,
   `lab_name` varchar(100) NOT NULL,
   `location` varchar(100) NOT NULL,
-  PRIMARY KEY (`lab_id`)
+  PRIMARY KEY (`lab_id`),
+  CONSTRAINT `chk_lab_location_nonempty` CHECK ((char_length(trim(`location`)) > 0)),
+  CONSTRAINT `chk_lab_name_nonempty` CHECK ((char_length(trim(`lab_name`)) > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `equipment` (
@@ -30,7 +33,8 @@ CREATE TABLE `equipment` (
   `lab_id` int NOT NULL,
   PRIMARY KEY (`equipment_id`),
   KEY `fk_equipment_lab` (`lab_id`),
-  CONSTRAINT `fk_equipment_lab` FOREIGN KEY (`lab_id`) REFERENCES `laboratories` (`lab_id`) ON DELETE RESTRICT ON UPDATE CASCADE
+  CONSTRAINT `fk_equipment_lab` FOREIGN KEY (`lab_id`) REFERENCES `laboratories` (`lab_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `chk_equipment_name_nonempty` CHECK ((char_length(trim(`equipment_name`)) > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `bookings` (
@@ -65,5 +69,6 @@ CREATE TABLE `fault_reports` (
   KEY `idx_fault_equipment_status` (`equipment_id`,`fault_status`),
   CONSTRAINT `fk_fault_equipment` FOREIGN KEY (`equipment_id`) REFERENCES `equipment` (`equipment_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `fk_fault_reporter` FOREIGN KEY (`reported_by`) REFERENCES `users` (`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  CONSTRAINT `fk_fault_technician` FOREIGN KEY (`technician_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `fk_fault_technician` FOREIGN KEY (`technician_id`) REFERENCES `users` (`user_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `chk_fault_description_nonempty` CHECK ((char_length(trim(`fault_description`)) > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
