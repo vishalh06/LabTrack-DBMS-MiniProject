@@ -1,0 +1,74 @@
+{
+  "runAt": "2026-11-12T04:08:50.732Z",
+  "cleanupPassed": true,
+  "results": [
+    {
+      "name": "Unauthenticated catalogue access rejected",
+      "passed": true
+    },
+    {
+      "name": "Technician cannot access booking management",
+      "passed": true
+    },
+    {
+      "name": "Student cannot manage equipment",
+      "passed": true
+    },
+    {
+      "name": "Student cannot approve bookings",
+      "passed": true
+    },
+    {
+      "name": "Reversed dates rejected",
+      "passed": true
+    },
+    {
+      "name": "First student can request equipment",
+      "passed": true
+    },
+    {
+      "name": "Duplicate overlapping student request rejected",
+      "passed": true
+    },
+    {
+      "name": "Second student can submit a competing pending request",
+      "passed": true
+    },
+    {
+      "name": "Student sees only their own booking",
+      "passed": true
+    },
+    {
+      "name": "Concurrent conflicting approvals allow exactly one success",
+      "passed": true
+    },
+    {
+      "name": "Staff can issue approved equipment",
+      "passed": true
+    },
+    {
+      "name": "Issue updates equipment status",
+      "passed": true
+    },
+    {
+      "name": "Staff can record return",
+      "passed": true
+    },
+    {
+      "name": "Return keeps booking and equipment consistent",
+      "passed": true
+    },
+    {
+      "name": "Equipment with an unresolved fault cannot be requested",
+      "passed": true
+    },
+    {
+      "name": "Referenced equipment cannot be deleted",
+      "passed": true
+    },
+    {
+      "name": "Logout succeeds",
+      "passed": true
+    }
+  ]
+}
