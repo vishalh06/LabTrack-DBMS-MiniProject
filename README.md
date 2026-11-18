@@ -114,3 +114,9 @@ See docs/mongodb-model.md and docs/HANDOVER.md.
 Vishal implements the first half.
 Vidit continues with fault management, reports, integration testing,
 and final documentation. Each member commits their own actual work.
+## Fault management
+
+After the base setup run `npm run db:faults` (adds the fault columns, audit
+table, views and triggers) and `npm run db:mongo`. Then `npm run test:faults`
+and `npm run test:bookings`. Details, API table, SQL objects and viva notes:
+`docs/fault-module.md`. ER diagram: `docs/er-diagram.md`.

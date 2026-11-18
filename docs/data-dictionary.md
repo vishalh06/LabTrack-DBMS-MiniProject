@@ -139,3 +139,12 @@ CREATE TABLE `fault_reports` (
   CONSTRAINT `chk_fault_description_nonempty` CHECK ((char_length(trim(`fault_description`)) > 0))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
+
+## Fault-management additions (`npm run db:faults`)
+
+`fault_reports` gains `assigned_date date NULL` and `resolved_date date NULL`
+(set by trigger). New table `fault_audit(audit_id, fault_id FK, old_status,
+new_status, old_technician_id, new_technician_id, changed_at)`. Views:
+`vw_fault_details`, `vw_technician_workload`, `vw_lab_fault_summary`.
+Triggers: `trg_fault_before_insert`, `trg_fault_before_update`,
+`trg_fault_after_insert`, `trg_fault_after_update`. See `docs/fault-module.md`.

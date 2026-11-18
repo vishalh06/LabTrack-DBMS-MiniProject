@@ -90,3 +90,13 @@ show write failures, and reuse event_id on retries.
 - Existing ER artwork predates the authentication/schema additions.
 
 Do not describe pending features or unperformed checks as complete.
+## Status update: fault module implemented
+
+Done: fault reporting, listing, technician assignment, resolution
+(`/api/faults`), MongoDB repair notes (`/api/repairs`), reports
+(`/api/reports`), fault/technician/report screens in the dashboard, SQL
+migration with triggers, audit table and views, `scripts/test-faults.mjs`.
+
+Still to do by hand: run `npm run db:faults` and `npm run db:mongo` on your
+machine, run `npm run test:faults` with MongoDB running (the Mongo checks are
+skipped without it), take screenshots, finish the final report.
