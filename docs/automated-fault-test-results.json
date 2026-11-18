@@ -1,0 +1,259 @@
+{
+  "runAt": "2026-11-18T09:02:49.836Z",
+  "mongoReachable": true,
+  "cleanupPassed": true,
+  "results": [
+    {
+      "name": "Unauthenticated fault list rejected",
+      "passed": true
+    },
+    {
+      "name": "Technician cannot report faults",
+      "passed": true
+    },
+    {
+      "name": "Too-short description rejected",
+      "passed": true
+    },
+    {
+      "name": "Invalid equipment id rejected",
+      "passed": true
+    },
+    {
+      "name": "Unknown equipment returns 404",
+      "passed": true
+    },
+    {
+      "name": "Invalid status filter rejected",
+      "passed": true
+    },
+    {
+      "name": "Student can report a fault",
+      "passed": true
+    },
+    {
+      "name": "New fault is Reported, unassigned, dated",
+      "passed": true
+    },
+    {
+      "name": "Reporting a fault marks available equipment Under Repair",
+      "passed": true
+    },
+    {
+      "name": "Duplicate open report rejected",
+      "passed": true
+    },
+    {
+      "name": "Second student can report a different fault",
+      "passed": true
+    },
+    {
+      "name": "Student sees only their own faults",
+      "passed": true
+    },
+    {
+      "name": "Staff sees all faults and the technician list",
+      "passed": true
+    },
+    {
+      "name": "Status filter works",
+      "passed": true
+    },
+    {
+      "name": "Equipment with an open fault cannot be requested",
+      "passed": true
+    },
+    {
+      "name": "Student cannot assign",
+      "passed": true
+    },
+    {
+      "name": "Technician cannot assign",
+      "passed": true
+    },
+    {
+      "name": "Assigning a non-technician is rejected",
+      "passed": true
+    },
+    {
+      "name": "Assigning an unknown fault returns 404",
+      "passed": true
+    },
+    {
+      "name": "Invalid action body rejected",
+      "passed": true
+    },
+    {
+      "name": "Staff can assign a technician",
+      "passed": true
+    },
+    {
+      "name": "Assignment moves the fault to Under Repair with a date",
+      "passed": true
+    },
+    {
+      "name": "Assigning the same technician again is rejected",
+      "passed": true
+    },
+    {
+      "name": "Technician sees only their assigned faults",
+      "passed": true
+    },
+    {
+      "name": "Other technician sees none",
+      "passed": true
+    },
+    {
+      "name": "Trigger rejects assigning a non-technician",
+      "passed": true
+    },
+    {
+      "name": "Trigger rejects resolving an unassigned fault",
+      "passed": true
+    },
+    {
+      "name": "Trigger rejects inserting a fault that is not Reported",
+      "passed": true
+    },
+    {
+      "name": "Audit trigger recorded the report and the assignment",
+      "passed": true
+    },
+    {
+      "name": "Student cannot add repair updates",
+      "passed": true
+    },
+    {
+      "name": "Unassigned technician cannot add repair updates",
+      "passed": true
+    },
+    {
+      "name": "Invalid repair action rejected",
+      "passed": true
+    },
+    {
+      "name": "Repair update for an unknown fault returns 404",
+      "passed": true
+    },
+    {
+      "name": "Student cannot read repair history",
+      "passed": true
+    },
+    {
+      "name": "Unassigned technician cannot read repair history",
+      "passed": true
+    },
+    {
+      "name": "Assigned technician can add a repair update",
+      "passed": true
+    },
+    {
+      "name": "Retry with the same event_id is idempotent",
+      "passed": true
+    },
+    {
+      "name": "Only one document stored for the retried event",
+      "passed": true
+    },
+    {
+      "name": "Staff can read repair history",
+      "passed": true
+    },
+    {
+      "name": "technician_id is taken from the session, not the browser",
+      "passed": true
+    },
+    {
+      "name": "Staff cannot resolve",
+      "passed": true
+    },
+    {
+      "name": "Unassigned technician cannot resolve",
+      "passed": true
+    },
+    {
+      "name": "Resolving an unassigned (Reported) fault is rejected",
+      "passed": true
+    },
+    {
+      "name": "Assigned technician can resolve",
+      "passed": true
+    },
+    {
+      "name": "Resolved fault has a resolved date",
+      "passed": true
+    },
+    {
+      "name": "Equipment stays Under Repair while another fault is open",
+      "passed": true
+    },
+    {
+      "name": "Resolving twice is rejected",
+      "passed": true
+    },
+    {
+      "name": "Resolved fault cannot be reassigned",
+      "passed": true
+    },
+    {
+      "name": "Trigger rejects editing a resolved fault",
+      "passed": true
+    },
+    {
+      "name": "Staff can reassign an open fault to another technician",
+      "passed": true
+    },
+    {
+      "name": "Second technician resolves the last open fault",
+      "passed": true
+    },
+    {
+      "name": "Equipment becomes Available when all faults are resolved",
+      "passed": true
+    },
+    {
+      "name": "Staff approves booking for equipment B",
+      "passed": true
+    },
+    {
+      "name": "Staff issues equipment B",
+      "passed": true
+    },
+    {
+      "name": "Fault can be reported on issued equipment",
+      "passed": true
+    },
+    {
+      "name": "Reporting does not erase the outstanding issue",
+      "passed": true
+    },
+    {
+      "name": "Assign technician to the issued-equipment fault",
+      "passed": true
+    },
+    {
+      "name": "Resolve the issued-equipment fault",
+      "passed": true
+    },
+    {
+      "name": "Resolution keeps equipment Issued while the booking is outstanding",
+      "passed": true
+    },
+    {
+      "name": "Return after resolution makes equipment Available",
+      "passed": true
+    },
+    {
+      "name": "Student cannot read reports",
+      "passed": true
+    },
+    {
+      "name": "Staff can read reports",
+      "passed": true
+    },
+    {
+      "name": "Report includes MongoDB repair activity",
+      "passed": true
+    }
+  ]
+}

@@ -9,8 +9,10 @@
     "lint": "eslint",
     "db:setup": "node --env-file=.env.local scripts/setup-db.mjs",
     "db:procedure": "node --env-file=.env.local scripts/install-procedure.mjs",
+    "db:faults": "node --env-file=.env.local scripts/install-faults.mjs",
     "db:seed": "node --env-file=.env.local scripts/seed.mjs",
     "test:bookings": "node --env-file=.env.local scripts/test-bookings.mjs",
+    "test:faults": "node --env-file=.env.local scripts/test-faults.mjs",
     "db:mongo": "node --env-file=.env.local scripts/setup-mongodb.mjs"
   },
   "dependencies": {

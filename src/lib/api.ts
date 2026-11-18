@@ -32,6 +32,12 @@ export function apiError(error: unknown) {
       { status: 409 },
     );
   }
+  if (sqlError?.code === "ER_NO_SUCH_TABLE") {
+    return NextResponse.json(
+      { error: "Fault-management database objects are missing. Run npm run db:faults." },
+      { status: 500 },
+    );
+  }
   console.error("Database operation failed:",
     error instanceof Error ? error.message : "Unknown error");
   return NextResponse.json(

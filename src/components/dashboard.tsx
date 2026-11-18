@@ -1,6 +1,7 @@
 "use client";
 
 import Management from "./management";
+import Faults from "./faults";
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
 
@@ -79,6 +80,14 @@ export default function Dashboard({ role }: { role: Role }) {
       }
     }
     void load();
+  }, [refresh]);
+
+  const reload = useCallback(async () => {
+    try {
+      await refresh();
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Unable to refresh data.");
+    }
   }, [refresh]);
 
   async function requestBooking(event: FormEvent<HTMLFormElement>) {
@@ -195,6 +204,8 @@ export default function Dashboard({ role }: { role: Role }) {
         </p>
       </section>
 
+      <Faults role={role} equipment={equipment} onChanged={reload} />
+
       {role === "Student" && (
         <section>
           <h2 className="text-2xl font-semibold">Request equipment</h2>
@@ -227,7 +238,7 @@ export default function Dashboard({ role }: { role: Role }) {
         </section>
       )}
 
-      {role !== "Technician" ? (
+      {role !== "Technician" && (
         <section>
           <h2 className="text-2xl font-semibold">
             {role === "Staff" ? "Manage bookings" : "My bookings"}
@@ -284,10 +295,6 @@ export default function Dashboard({ role }: { role: Role }) {
             {!bookings.length && <p className="p-3">No bookings yet.</p>}
           </div>
         </section>
-      ) : (
-        <p className="rounded-lg bg-slate-100 p-4">
-          Technician fault assignments will be added in Vidit&apos;s half.
-        </p>
       )}
     </div>
   );
